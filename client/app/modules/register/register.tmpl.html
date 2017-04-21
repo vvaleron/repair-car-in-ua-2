@@ -1,0 +1,60 @@
+<div ng-controller="RegisterCtrl as ctrl" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe flex="90" class="md-whiteframe-2dp register-whiteframe">
+    <md-content class="md-padding">
+      <form name="userForm" class="ng-pristine ng-valid ng-valid-md-maxlength">
+
+        <div layout="row" layout-sm="column">
+          <md-input-container flex class="md-block">
+            <label for="input_012">Email</label>
+            <input ng-model="ctrl.user.email" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_012" aria-invalid="false">
+          </md-input-container>
+        </div>
+        <div layout="row" layout-sm="column">
+          <md-input-container flex class="md-block">
+            <label for="input_007">Имя</label>
+            <input required="true" ng-model="ctrl.user.firstName" class="ng-pristine ng-valid md-input ng-touched" md-maxlength="20" tabindex="0" id="input_007" aria-invalid="false">
+          </md-input-container>
+          <md-input-container flex class="md-block">
+            <label for="input_008">Фамилия</label>
+            <input required="true" ng-model="ctrl.user.lastName" class="ng-pristine ng-valid md-input ng-touched" md-maxlength="20" tabindex="0" id="input_008" aria-invalid="false">
+          </md-input-container>
+        </div>
+        <div layout="row" layout-sm="column">
+          <md-input-container flex class="md-block">
+            <label for="input_009">Адрес</label>
+            <input ng-model="ctrl.user.address" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_009" aria-invalid="false">
+          </md-input-container>
+        </div>
+        <div layout="row" layout-sm="column">
+          <md-input-container flex class="md-block">
+            <label for="input_010">Отдел</label>
+            <input required="true" ng-model="ctrl.user.department" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_010" aria-invalid="false">
+          </md-input-container>
+          <md-input-container flex class="md-block">
+            <label for="input_011">Должность</label>
+            <input required="true" ng-model="ctrl.user.position" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_011" aria-invalid="false">
+          </md-input-container>
+        </div>
+
+        <div layout="row" layout-sm="column">
+          <md-input-container class="flex md-block">
+            <label for="input_00A">Город</label>
+            <input ng-model="ctrl.user.city" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_00A" aria-invalid="false">
+          </md-input-container>
+          <md-input-container class="flex md-block">
+            <label for="input_00B">Область</label>
+            <input ng-model="ctrl.user.state" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_00B" aria-invalid="false">
+          </md-input-container>
+          <md-input-container class="flex md-block">
+            <label for="input_00C">Почтовый код</label>
+            <input ng-model="ctrl.user.postalCode" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_00C" aria-invalid="false">
+          </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+          <md-button class="md-raised md-warn" ng-click="ctrl.fillMockData()">Заполнить</md-button>
+          <md-button ng-disabled="!ctrl.isUserFormValid" class="md-raised md-primary" ng-click="ctrl.register()">Зарегестрировать</md-button>
+        </div>
+      </form>
+    </md-content>
+  </md-whiteframe>
+</div>

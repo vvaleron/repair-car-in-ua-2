@@ -1,0 +1,82 @@
+<div ng-controller="UsersCtrl as ctrl" layout="row" layout-wrap layout-align="center center">
+  <md-whiteframe flex class="md-whiteframe-2dp" >
+      <!--<div class="users-control" layout="row">-->
+        <!--<md-button flex class="md-raised" ng-click="ctrl.navigateTo('#/register', $event)" ng-disabled="ctrl.isEditMod">Добавить</md-button>-->
+        <!--<md-button flex class="md-raised" ng-click="ctrl.deleteSelectedUsers($event)" ng-disabled="ctrl.isEditMod || !ctrl.selectedUsers.length">Удалить</md-button>-->
+      <!--</div>-->
+    <md-list class="users-list">
+      <div class="expandcollapse-item"
+           ng-repeat="user in ctrl.users track by $index"
+           ng-class="user.selected ? 'selected' : ''; user.expanded ? 'expanded' : ''">
+
+        <md-list-item ng-click="ctrl.showUserInfo(user, $event)">
+          <img alt="{{ user.firstName }}" ng-src="{{ user.avatar }}" class="md-avatar"/>
+          <div>
+            <h5 flex ng-bind="::user.fullName"></h5>
+            <h6 flex ng-bind="::user.position"></h6>
+          </div>
+          <md-checkbox class="md-secondary" ng-model="user.selected" ng-readonly="ctrl.isEditMod"></md-checkbox>
+        </md-list-item>
+        <div class="slideDown" ng-hide="!user.expanded">
+          <md-content class="expand-collapse-content md-padding">
+            <form class="ng-pristine ng-valid ng-valid-md-maxlength">
+              <div layout="row" layout-sm="column">
+                <md-input-container flex class="md-block">
+                  <label for="input_012">Email</label>
+                  <input ng-model="user.email" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_012" aria-invalid="false">
+                </md-input-container>
+              </div>
+              <div layout="row" layout-sm="column">
+                <md-input-container flex class="md-block">
+                  <label for="input_007">Имя</label>
+                  <input required="true" ng-model="user.firstName" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" md-maxlength="20" tabindex="0" id="input_007" aria-invalid="false">
+                </md-input-container>
+                <md-input-container flex class="md-block">
+                  <label for="input_008">Фамилия</label>
+                  <input required="true" ng-model="user.lastName" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" md-maxlength="20" tabindex="0" id="input_008" aria-invalid="false">
+                </md-input-container>
+              </div>
+              <div layout="row" layout-sm="column">
+                <md-input-container flex class="md-block">
+                  <label for="input_009">Адрес</label>
+                  <input ng-model="user.address" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_009" aria-invalid="false">
+                </md-input-container>
+              </div>
+              <div layout="row" layout-sm="column">
+                <md-input-container flex class="md-block">
+                  <label for="input_010">Отдел</label>
+                  <input required="true" ng-model="user.department" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_010" aria-invalid="false">
+                </md-input-container>
+                <md-input-container flex class="md-block">
+                  <label for="input_011">Должность</label>
+                  <input required="true" ng-model="user.position" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_011" aria-invalid="false">
+                </md-input-container>
+              </div>
+
+              <div layout="row" layout-sm="column">
+                <md-input-container class="flex md-block">
+                  <label for="input_00A">Город</label>
+                  <input ng-model="user.city" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_00A" aria-invalid="false">
+                </md-input-container>
+                <md-input-container class="flex md-block">
+                  <label for="input_00B">Область</label>
+                  <input ng-model="user.state" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_00B" aria-invalid="false">
+                </md-input-container>
+                <md-input-container class="flex md-block">
+                  <label for="input_00C">Почтовый код</label>
+                  <input ng-model="user.postalCode" ng-readonly="!user.editing" class="ng-pristine ng-valid md-input ng-touched" tabindex="0" id="input_00C" aria-invalid="false">
+                </md-input-container>
+              </div>
+            </form>
+            <div layout="row">
+              <md-button flex class="md-raised" ng-hide="user.editing" ng-click="ctrl.editUser(user, $event)">Редактировать</md-button>
+              <md-button flex class="md-raised" ng-hide="!user.editing" ng-click="ctrl.saveEditedUser(user, $event)">Сохронить</md-button>
+              <md-button flex class="md-raised" ng-hide="!user.editing" ng-click="ctrl.cancelEditing(user, $event)">Отмена</md-button>
+            </div>
+          </md-content>
+        </div>
+        <md-divider></md-divider>
+      </div>
+    </md-list>
+  </md-whiteframe>
+</div>

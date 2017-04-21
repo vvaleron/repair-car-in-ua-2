@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Автоматизация Производства</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+<body layout="column" ng-app="app" ng-controller="AppCtrl as appCtrl" ng-cloak>
+  <header>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="More" ng-click="appCtrl.toggleLeft()">
+          <i class="material-icons">menu</i>
+        </md-button>
+        <h2 flex md-truncate>Автоматизация Производства</h2>
+        <md-button ui-sref="home" class="md-icon-button" aria-label="More">
+          <i class="material-icons">apps</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+  </header>
+  <section flex layout="row">
+    <md-content flex id="content">
+      <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+        <md-content layout-margin>
+          <p>
+            Валерий Школьный
+          </p>
+        </md-content>
+
+        <menu-list toggle-left="appCtrl.toggleLeft()">
+      </md-sidenav>
+
+      <ui-view class="layout-column" layout="column"></ui-view>
+    </md-content>
+  </section>
+  <script src="./build/bundle.js"></script>
+</body>
+
+</html>
