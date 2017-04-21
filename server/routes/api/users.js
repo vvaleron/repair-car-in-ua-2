@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // Define model with a pre-exist collection 'users'.
-let User = mongoose.model('User', userSchema, 'open-api-users');
+let User = mongoose.model('User', userSchema, 'app_users');
 
 
 users.post = (req, res) => {
